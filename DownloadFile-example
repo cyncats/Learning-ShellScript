@@ -1,0 +1,9 @@
+#!/bin/bash
+#example of download an internet file and replacing the name 
+
+wget https://raw.githubusercontent.com/Idnan/bash-guide/master/README.md
+
+
+
+#another section
+cp ./readme.md /blabla2.md
