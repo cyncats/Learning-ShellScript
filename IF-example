@@ -1,0 +1,15 @@
+#!/bin/shell
+#The user needs to write one name and it will do a search on the file. It will return the complete name. 
+#the file should already exist with a name list
+ 
+FILESTD="/root/Documents/alunos.txt"
+ 
+if test $# -gt 0
+then
+    FILECOMPLETE=$(grep "$1" "$FILESTD")
+    echo "complete name is: "$FILECOMPLETE""
+else
+    echo "Tells the complete name!"
+fi
+echo
+echo "End" 
