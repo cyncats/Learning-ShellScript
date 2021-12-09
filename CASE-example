@@ -1,0 +1,38 @@
+#!/bin/bash
+#This is just a CASE example code, just playing a little, how to scare your friends. 
+ 
+echo "Choose an option bellow: "
+echo
+echo "1 - to ADD"
+echo "2 - to REMOVE"
+echo "3 - to MOVE"
+echo "q - to quit" 
+echo
+read -p "Option: " option
+echo
+ 
+case "$option" in 
+	1)
+		echo "Option 1 was choosen"
+		echo "Initializating the insert a TROJAN mode..."
+		sleep 3
+		;;
+	2) 
+		echo "Otion 2 was choosen"
+		echo "Initializating to remove all your files from the compute..."
+		sleep 3
+		;;
+	3)
+		echo "Option 3 was choosen"
+		echo "Initializating to move all your pictures to the my computer..."
+		sleep 3
+		;;
+	q)
+		echo "Leaving the program"
+		sleep 3
+		;;
+	*)
+		echo "Option not valid"
+		exit 2
+		;;
+esac
