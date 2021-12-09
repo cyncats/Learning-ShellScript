@@ -3,7 +3,8 @@
 #the file should already exist with a name list
  
 FILESTD="/root/Documents/alunos.txt"
- 
+
+#if the parameter is greater than 0, it means if the user type something"
 if test $# -gt 0
 then
     FILECOMPLETE=$(grep "$1" "$FILESTD")
