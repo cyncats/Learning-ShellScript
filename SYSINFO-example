@@ -1,0 +1,55 @@
+#!/bin/bash
+#Practice for training 
+#This will receive 2 valued and show the result
+echo "The first question is about sume."
+echo -n "Type a number: "
+read NUMBER
+echo -n "Type the second number: "
+read NUMBER2
+echo -n "The result is: $((NUMBER+NUMBER2))"
+echo ""
+read -p "O primeiro numero: " V1
+read -p "O segundo numero: " V2
+echo
+echo  "A subtracao dos numeros: $V1 - $V2 igual a $(expr $V1 - $V2)"
+echo "================================"
+# Date and Name of the machine
+VARMACHINE=`uname -r`
+VARNAME=`hostname`
+VARACTIVE=`uptime -s`
+VARCPU=$(cat /proc/cpuinfo |grep "model name"|wc -l)
+VARMODEL=$(cat /proc/cpuinfo | grep "model name"|head -n1|cut -c14-)
+VARMEM=$(expr $(cat /proc/meminfo |grep MemTotal|tr -d ' '|cut -d: -f2|tr -d kB) / 1024)
+VARPAT=$(df -h|egrep -v '(tmpfs|udev)')
+
+echo "Machine and Kernel: $VARMACHINE and $VARNAME"
+echo ""
+echo "Date and Hour: $(date)"
+echo ""
+echo "When is the machine active:  $VARACTIVE"
+echo ""
+echo "Quantity CPU: $VARCPU"
+echo "Model of CPU: $VARMODEL"
+echo "Memory: $VARMEM"
+echo ""
+echo "Patitions:"
+echo "$VARPAT"
+echo
+echo "======================="
+
+ls root/Documents/$1 > /dev/null 2>$1 || { echo "User doesn't exist" ; exit 1;}
+
+USERID=$(grep $1 /etc/passwd|cut -d":" -f3)
+DESC=$(grep $1 /etc/passwd|cut -d":" -f5 | tr -d ,)
+USOHOME=$(du -sh /home/$1|cur -f1)
+
+echo "=================================="
+echo "User details: $1"
+echo
+echo "UID: $USERID"
+echo "Name of the Description: $DESC"
+echo
+
+
+
+
