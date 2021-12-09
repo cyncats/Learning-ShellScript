@@ -1,0 +1,31 @@
+#!/bin/bash
+
+HOUR=$(date +%H)
+MIN=$(date +%M)
+
+if [ $HOUR -ge 06 -a $HOUR -lt 12 ]
+then
+	echo "Dzien Dobry Panstwo"
+elif [ $HOUR -ge 12 -a $HOUR -lt 18 ]
+then 
+	echo "Dobry Wieczor Kochany"
+else
+	echo "Dobranoc misiu"
+	
+fi
+
+# AM PM
+if [ $HOUR -ge 12 ]
+then
+	AMPM=PM
+else
+	AMPM=AM
+fi
+
+# Reduzir a hora
+if [ $HOUR -gt 12 ]
+then
+	HOUR=$(expr $HOUR - 12)
+fi
+echo
+echo "The actual hour: $HOUR:$MIN $AMPM"
