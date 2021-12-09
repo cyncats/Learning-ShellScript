@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#Description: Read the Hour and show the list of names.
+#
+#Exemplo of usage: ./primeiroscript.sh 
+#                  bash -x ./primeiroscript.sh
+#
+echo "================================================="
+echo " *** My First Script *** "
+echo ""
+echo -n "Date and Hour: "
+date
+echo ""
+
+case "$1" in
+	[0-9])
+		echo "This is a number"
+		;;
+	[A-Z])
+		echo "This is a UPPER leter"
+		;;
+	[a-z])
+		echo "This is a lower leter"
+		;;
+	*) 
+		echo "This is a special caracter"
+esac
