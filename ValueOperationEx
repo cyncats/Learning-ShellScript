@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#### Script for operation of values
+
+# -p means to read the parameter. The parameter is the VALUE 1 and 2
+
+read -p "Tell the first number: " VALUE1
+read -p "Tell the second number: " VALUE2
+
+if [ ! $VALUE1 ] || [ ! $VALUE2 ]
+then
+        echo "The values cannot be null"
+        exit 1
+if [ $VALUE1 = [a-z] -o $VALUE2 = [a-z] ]
+then
+
+                echo "Only numbers"
+fi
+fi
