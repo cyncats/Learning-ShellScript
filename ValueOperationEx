@@ -11,9 +11,56 @@ if [ ! $VALUE1 ] || [ ! $VALUE2 ]
 then
         echo "The values cannot be null"
         exit 1
-if [ $VALUE1 = [a-z] -o $VALUE2 = [a-z] ]
-then
+fi
 
-                echo "Only numbers"
-fi
-fi
+echo
+echo "Choose an operation"
+echo "1 = Sume"
+echo "2 = Subtration"
+echo "3 = Multiplication"
+echo "4 = Division "
+echo "0 = Quit"
+echo
+read -p "Option: " OPCAO
+
+case $OPCAO in
+        1)
+                OPER="+"
+                ;;
+        2)
+                OPER="-"
+                 ;;
+        3)
+                if [ $VALUE1 -eq 0 -o $VALUE2 -eq 0 ]
+                then
+                        echo " The value 0 cannot be used to multiply"
+                        exit 1
+                fi
+                OPER="*"
+                ;;
+        4)
+                if [ $VALUE1 -eq 0 -o $VALUE2 -eq 0 ]
+                then
+                        echo " The value 0 cannot be used to divide"
+                        exit 1
+                fi
+                if [ $(expr $VALUE1 % $VALUE2) -ne 0 ]
+                then
+                        echo "division with remainder = $(expr $VALUE1 % $VALUE2)"
+                else
+                        echo "Exact division"
+                fi
+                echo
+                OPER="/"
+                ;;
+        [Qq])
+                echo "Quiting..."
+                sleep 2
+                    exit
+                ;;
+        *)
+                echo "Invalid Option"
+                exit 1
+                ;;
+esac
+echo "$VALUE1 $OPER $VALUE2 = $(expr $VALUE1 "$OPER" $VALUE2)"
