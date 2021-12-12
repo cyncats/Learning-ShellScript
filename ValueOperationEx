@@ -12,6 +12,11 @@ then
         echo "The values cannot be null"
         exit 1
 fi
+if [ $VALUE1 = [a-z] -o $VALUE2 = [a-z] ]
+then
+        echo "This is a letter, not valid"
+        exit 1;
+fi
 
 echo
 echo "Choose an operation"
