@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#!/bin/bash
+
+TIME=5
+
+if [ $# -eq 0 ]
+then
+        echo "Inform a process"
+        echo ".MonitorinfProcess.sh <process>"
+        exit 1
+fi
+
+while true
+do
+        if ps aux |grep $1 |grep -v grep |grep -v $0 > /dev/null
+        then
+                sleep $TIME
+        else
+                echo "ATention. The process $1 is NOT in execution"
+                sleep $TIME
+        fi
+done
